@@ -1,0 +1,180 @@
+{
+  "color": {
+    "$type": "color",
+    "bg": {
+      "default":  { "$value": {
+        "light": "{color.white}", "dark": "{color.gray.950}", "high-contrast-dark": "{color.black}",
+        "dim": "{color.dim.bg}", "midnight": "{color.black}", "high-contrast-light": "{color.white}",
+        "sepia": "{color.sepia.bg}", "solarized-light": "{color.solarized.base3}", "solarized-dark": "{color.solarized.base03}",
+        "nord": "{color.nord.pn0}", "love": "{color.love.bg}", "future": "{color.future.bg}",
+        "synthwave": "{color.synthwave.bg}", "sakura": "{color.sakura.bg}", "forest": "{color.forest.bg}",
+        "ocean": "{color.ocean.bg}", "coffee": "{color.coffee.bg}", "aurora": "{color.aurora.bg}"
+      } },
+      "subtle":   { "$value": {
+        "light": "{color.gray.50}", "dark": "{color.gray.900}", "high-contrast-dark": "{color.gray.950}",
+        "dim": "{color.dim.subtle}", "midnight": "{color.gray.950}", "high-contrast-light": "{color.gray.50}",
+        "sepia": "{color.sepia.subtle}", "solarized-light": "{color.solarized.base2}", "solarized-dark": "{color.solarized.base02}",
+        "nord": "{color.nord.pn1}", "love": "{color.love.subtle}", "future": "{color.future.subtle}",
+        "synthwave": "{color.synthwave.subtle}", "sakura": "{color.sakura.subtle}", "forest": "{color.forest.subtle}",
+        "ocean": "{color.ocean.subtle}", "coffee": "{color.coffee.subtle}", "aurora": "{color.aurora.subtle}"
+      } },
+      "raised":   { "$value": {
+        "light": "{color.white}", "dark": "{color.gray.800}", "high-contrast-dark": "{color.gray.900}",
+        "dim": "{color.dim.raised}", "midnight": "{color.gray.900}", "high-contrast-light": "{color.white}",
+        "sepia": "{color.sepia.raised}", "solarized-light": "{color.solarized.base3}", "solarized-dark": "{color.solarized.base02}",
+        "nord": "{color.nord.pn2}", "love": "{color.love.raised}", "future": "{color.future.raised}",
+        "synthwave": "{color.synthwave.raised}", "sakura": "{color.sakura.raised}", "forest": "{color.forest.raised}",
+        "ocean": "{color.ocean.raised}", "coffee": "{color.coffee.raised}", "aurora": "{color.aurora.raised}"
+      } }
+    },
+    "text": {
+      "primary":   { "$value": {
+        "light": "{color.gray.900}", "dark": "{color.gray.50}", "high-contrast-dark": "{color.white}",
+        "dim": "{color.dim.text}", "high-contrast-light": "{color.black}",
+        "sepia": "{color.sepia.text}", "solarized-light": "{color.solarized.base02}", "solarized-dark": "{color.solarized.base2}",
+        "nord": "{color.nord.snow2}", "love": "{color.love.text}", "future": "{color.future.text}",
+        "synthwave": "{color.synthwave.text}", "sakura": "{color.sakura.text}", "forest": "{color.forest.text}",
+        "ocean": "{color.ocean.text}", "coffee": "{color.coffee.text}", "aurora": "{color.aurora.text}"
+      } },
+      "secondary": { "$value": {
+        "light": "{color.gray.700}", "dark": "{color.gray.300}", "high-contrast-dark": "{color.white}",
+        "dim": "{color.dim.text2}", "high-contrast-light": "{color.gray.900}",
+        "sepia": "{color.sepia.text2}", "solarized-light": "{color.solarized.base01}", "solarized-dark": "{color.solarized.base1}",
+        "nord": "{color.nord.snow0}", "love": "{color.love.text2}", "future": "{color.future.text2}",
+        "synthwave": "{color.synthwave.text2}", "sakura": "{color.sakura.text2}", "forest": "{color.forest.text2}",
+        "ocean": "{color.ocean.text2}", "coffee": "{color.coffee.text2}", "aurora": "{color.aurora.text2}"
+      } },
+      "muted":     { "$value": {
+        "light": "{color.gray.500}", "dark": "{color.gray.400}", "high-contrast-dark": "{color.gray.300}",
+        "dim": "{color.dim.muted}", "high-contrast-light": "{color.gray.700}",
+        "sepia": "{color.sepia.muted}", "solarized-light": "{color.solarized.base01}", "solarized-dark": "{color.solarized.base1}",
+        "nord": "{color.nord.muted}", "love": "{color.love.muted}", "future": "{color.future.muted}",
+        "synthwave": "{color.synthwave.muted}", "sakura": "{color.sakura.muted}", "forest": "{color.forest.muted}",
+        "ocean": "{color.ocean.muted}", "coffee": "{color.coffee.muted}", "aurora": "{color.aurora.muted}"
+      } },
+      "inverse":   { "$value": { "light": "{color.white}", "dark": "{color.gray.950}", "high-contrast-dark": "{color.black}" } }
+    },
+    "border": {
+      "default": { "$value": {
+        "light": "{color.gray.200}", "dark": "{color.gray.700}", "high-contrast-dark": "{color.gray.300}",
+        "dim": "{color.dim.line}", "midnight": "{color.gray.800}", "high-contrast-light": "{color.gray.900}",
+        "sepia": "{color.sepia.line}", "solarized-light": "{color.solarized.base1}", "solarized-dark": "{color.solarized.base01}",
+        "nord": "{color.nord.line}", "love": "{color.love.line}", "future": "{color.future.line}",
+        "synthwave": "{color.synthwave.line}", "sakura": "{color.sakura.line}", "forest": "{color.forest.line}",
+        "ocean": "{color.ocean.line}", "coffee": "{color.coffee.line}", "aurora": "{color.aurora.line}"
+      } },
+      "subtle":  { "$value": {
+        "light": "{color.gray.100}", "dark": "{color.gray.800}", "high-contrast-dark": "{color.gray.500}",
+        "dim": "{color.dim.line2}", "midnight": "{color.gray.900}", "high-contrast-light": "{color.gray.700}",
+        "sepia": "{color.sepia.line2}", "solarized-light": "{color.solarized.base2}", "solarized-dark": "{color.solarized.base02}",
+        "nord": "{color.nord.line2}", "love": "{color.love.line2}", "future": "{color.future.line2}",
+        "synthwave": "{color.synthwave.line2}", "sakura": "{color.sakura.line2}", "forest": "{color.forest.line2}",
+        "ocean": "{color.ocean.line2}", "coffee": "{color.coffee.line2}", "aurora": "{color.aurora.line2}"
+      } }
+    },
+    "action": {
+      "primary": {
+        "bg":       { "$value": {
+          "light": "{color.blue.600}", "dark": "{color.blue.600}", "high-contrast-dark": "{color.blue.700}",
+          "dim": "{color.dim.accent}", "high-contrast-light": "{color.blue.700}",
+          "sepia": "{color.sepia.accent}", "solarized-light": "{color.solarized.accent}", "solarized-dark": "{color.solarized.accent}",
+          "nord": "{color.nord.accent}", "love": "{color.love.accent}", "future": "{color.future.accent}",
+          "synthwave": "{color.synthwave.accent}", "sakura": "{color.sakura.accent}", "forest": "{color.forest.accent}",
+          "ocean": "{color.ocean.accent}", "coffee": "{color.coffee.accent}", "aurora": "{color.aurora.accent}"
+        } },
+        "fg":       { "$value": {
+          "light": "{color.white}", "dark": "{color.white}",
+          "future": "{color.future.bg}", "aurora": "{color.aurora.bg}"
+        } },
+        "border":   { "$value": { "light": "{color.blue.600}",  "dark": "{color.blue.500}" } },
+        "hover":    { "$value": { "light": "{color.blue.700}",  "dark": "{color.blue.400}" } },
+        "active":   { "$value": { "light": "{color.blue.900}",  "dark": "{color.blue.600}" } },
+        "disabled": { "$value": { "light": "{color.gray.300}",  "dark": "{color.gray.700}" } },
+        "focus":    { "$value": { "light": "{color.blue.500}",  "dark": "{color.blue.400}" } }
+      },
+      "secondary": {
+        "bg":       { "$value": {
+          "light": "{color.gray.100}", "dark": "{color.gray.800}",
+          "dim": "{color.dim.sec}", "midnight": "{color.gray.900}", "high-contrast-light": "{color.gray.200}",
+          "sepia": "{color.sepia.sec}", "solarized-light": "{color.solarized.base2}", "solarized-dark": "{color.solarized.base02}",
+          "nord": "{color.nord.sec}", "love": "{color.love.sec}", "future": "{color.future.sec}",
+          "synthwave": "{color.synthwave.sec}", "sakura": "{color.sakura.sec}", "forest": "{color.forest.sec}",
+          "ocean": "{color.ocean.sec}", "coffee": "{color.coffee.sec}", "aurora": "{color.aurora.sec}"
+        } },
+        "fg":       { "$value": {
+          "light": "{color.gray.900}", "dark": "{color.gray.50}", "high-contrast-light": "{color.black}",
+          "dim": "{color.dim.text}",
+          "sepia": "{color.sepia.text}", "solarized-light": "{color.solarized.base02}", "solarized-dark": "{color.solarized.base1}",
+          "nord": "{color.nord.snow2}", "love": "{color.love.text}", "future": "{color.future.text}",
+          "synthwave": "{color.synthwave.text}", "sakura": "{color.sakura.text}", "forest": "{color.forest.text}",
+          "ocean": "{color.ocean.text}", "coffee": "{color.coffee.text}", "aurora": "{color.aurora.text}"
+        } },
+        "border":   { "$value": {
+          "light": "{color.gray.300}", "dark": "{color.gray.700}",
+          "dim": "{color.dim.line}", "midnight": "{color.gray.800}", "high-contrast-light": "{color.gray.500}",
+          "sepia": "{color.sepia.line}", "solarized-light": "{color.solarized.base1}", "solarized-dark": "{color.solarized.base01}",
+          "nord": "{color.nord.line}", "love": "{color.love.line}", "future": "{color.future.line}",
+          "synthwave": "{color.synthwave.line}", "sakura": "{color.sakura.line}", "forest": "{color.forest.line}",
+          "ocean": "{color.ocean.line}", "coffee": "{color.coffee.line}", "aurora": "{color.aurora.line}"
+        } },
+        "hover":    { "$value": { "light": "{color.gray.200}",  "dark": "{color.gray.700}" } },
+        "active":   { "$value": { "light": "{color.gray.300}",  "dark": "{color.gray.600}" } },
+        "disabled": { "$value": { "light": "{color.gray.100}",  "dark": "{color.gray.800}" } },
+        "focus":    { "$value": { "light": "{color.blue.500}",  "dark": "{color.blue.400}" } }
+      },
+      "danger": {
+        "bg":       { "$value": {
+          "light": "{color.red.600}", "dark": "{color.red.600}", "high-contrast-dark": "{color.red.700}",
+          "dim": "{color.dim.danger}", "high-contrast-light": "{color.red.700}",
+          "sepia": "{color.sepia.danger}", "solarized-light": "{color.solarized.danger}", "solarized-dark": "{color.solarized.danger}",
+          "nord": "{color.nord.danger}", "love": "{color.love.danger}", "future": "{color.future.danger}",
+          "synthwave": "{color.synthwave.danger}", "sakura": "{color.sakura.danger}", "forest": "{color.forest.danger}",
+          "ocean": "{color.ocean.danger}", "coffee": "{color.coffee.danger}", "aurora": "{color.aurora.danger}"
+        } },
+        "fg":       { "$value": { "light": "{color.white}",     "dark": "{color.white}" } },
+        "border":   { "$value": {
+          "light": "{color.red.600}", "dark": "{color.red.500}",
+          "dim": "{color.dim.danger}", "high-contrast-light": "{color.red.700}",
+          "sepia": "{color.sepia.danger}", "solarized-light": "{color.solarized.danger}", "solarized-dark": "{color.solarized.danger}",
+          "nord": "{color.nord.danger}", "love": "{color.love.danger}", "future": "{color.future.danger}",
+          "synthwave": "{color.synthwave.danger}", "sakura": "{color.sakura.danger}", "forest": "{color.forest.danger}",
+          "ocean": "{color.ocean.danger}", "coffee": "{color.coffee.danger}", "aurora": "{color.aurora.danger}"
+        } },
+        "hover":    { "$value": { "light": "{color.red.700}",   "dark": "{color.red.400}" } },
+        "active":   { "$value": { "light": "{color.red.700}",   "dark": "{color.red.600}" } },
+        "disabled": { "$value": { "light": "{color.gray.300}",  "dark": "{color.gray.700}" } },
+        "focus":    { "$value": { "light": "{color.red.500}",   "dark": "{color.red.400}" } }
+      }
+    }
+  },
+  "text": {
+    "$type": "typography",
+    "display": { "$value": { "fontFamily": "{font.family.sans}", "fontSize": "{font.size.2xl}", "fontWeight": "{font.weight.bold}", "lineHeight": "{font.lineHeight.tight}" } },
+    "heading": { "$value": { "fontFamily": "{font.family.sans}", "fontSize": "{font.size.xl}", "fontWeight": "{font.weight.semibold}", "lineHeight": "{font.lineHeight.tight}" } },
+    "body":    { "$value": { "fontFamily": "{font.family.sans}", "fontSize": "{font.size.md}", "fontWeight": "{font.weight.regular}", "lineHeight": "{font.lineHeight.normal}" } },
+    "caption": { "$value": { "fontFamily": "{font.family.sans}", "fontSize": "{font.size.sm}", "fontWeight": "{font.weight.regular}", "lineHeight": "{font.lineHeight.normal}" } }
+  },
+  "space": {
+    "$type": "dimension",
+    "inset": {
+      "sm": { "$value": "{space.2}" },
+      "md": { "$value": "{space.4}" },
+      "lg": { "$value": "{space.6}" }
+    }
+  },
+  "radius": {
+    "$type": "dimension",
+    "control": { "$value": "{radius.md}" },
+    "surface": { "$value": "{radius.lg}" }
+  },
+  "elevation": {
+    "$type": "shadow",
+    "card":    { "$value": "{shadow.1}" },
+    "popover": { "$value": "{shadow.2}" },
+    "modal":   { "$value": "{shadow.3}" }
+  },
+  "motion": {
+    "enter": { "$type": "duration", "$value": "{duration.normal}" },
+    "exit":  { "$type": "duration", "$value": "{duration.fast}" }
+  }
+}

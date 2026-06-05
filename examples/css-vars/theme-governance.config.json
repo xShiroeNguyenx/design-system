@@ -1,0 +1,38 @@
+{
+  "$schema": "https://dsmcp.dev/schema/theme-governance.config.json",
+  "stack": "css-vars",
+  "modes": [
+    "light",
+    "dark",
+    "dim",
+    "midnight",
+    "high-contrast-light",
+    "high-contrast-dark",
+    "sepia",
+    "solarized-light",
+    "solarized-dark",
+    "nord",
+    "love",
+    "future",
+    "synthwave",
+    "sakura",
+    "forest",
+    "ocean",
+    "coffee",
+    "aurora"
+  ],
+  "defaultMode": "light",
+  "modeStrategy": "data-theme=\"<mode>\"",
+  "scope": [
+    "color",
+    "typography",
+    "spacing",
+    "radius",
+    "elevation",
+    "motion"
+  ],
+  "tokenOverrides": {},
+  "rules": {
+    "severityOverrides": {}
+  }
+}

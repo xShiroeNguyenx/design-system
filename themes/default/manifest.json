@@ -1,0 +1,27 @@
+{
+  "name": "dsmcp-default",
+  "description": "Default full-design-system theme: color, typography, spacing, radius, elevation, motion. Ships 18 modes (PLAN §11.1 functional pack + §11.2 aesthetic pack), each inheriting a light/dark base via `extends` and overriding only what differs.",
+  "defaultMode": "light",
+  "modes": [
+    { "name": "light", "description": "Light base — white/very-light-gray surfaces" },
+    { "name": "dark", "description": "Dark base — deep gray surfaces (not pure black)" },
+    { "name": "dim", "extends": "dark", "description": "Softer dark — bluish-gray, gentler contrast (GitHub Dark Dimmed / X Dim)" },
+    { "name": "midnight", "extends": "dark", "description": "Pure-black #000 for OLED/AMOLED, battery saving" },
+    { "name": "high-contrast-light", "extends": "light", "description": "A11y: maximal contrast on light (WCAG AAA target)" },
+    { "name": "high-contrast-dark", "extends": "dark", "description": "A11y: maximal contrast on dark" },
+    { "name": "sepia", "extends": "light", "description": "Warm cream surfaces — easy long-form reading (Kindle/reader)" },
+    { "name": "solarized-light", "extends": "light", "description": "Solarized light palette — popular among developers" },
+    { "name": "solarized-dark", "extends": "dark", "description": "Solarized dark palette" },
+    { "name": "nord", "extends": "dark", "description": "Nord palette — cool, arctic blue-grays" },
+    { "name": "love", "extends": "light", "description": "Aesthetic: romantic / Valentine — blush pink with rose accent" },
+    { "name": "future", "extends": "dark", "description": "Aesthetic: cyberpunk / sci-fi — neon cyan on near-black" },
+    { "name": "synthwave", "extends": "dark", "description": "Aesthetic: retro 80s / vaporwave — purple-magenta sunset" },
+    { "name": "sakura", "extends": "light", "description": "Aesthetic: anime / kawaii — soft cherry-blossom pastel" },
+    { "name": "forest", "extends": "light", "description": "Aesthetic: nature — greens and earthy browns" },
+    { "name": "ocean", "extends": "dark", "description": "Aesthetic: sea — deep blue and teal" },
+    { "name": "coffee", "extends": "dark", "description": "Aesthetic: cozy mocha — warm browns and cream" },
+    { "name": "aurora", "extends": "dark", "description": "Aesthetic: northern lights — night blue with emerald accent" }
+  ],
+  "tokenFiles": ["primitive.json", "semantic.json", "component.json"],
+  "typefaceFile": "typefaces.json"
+}

@@ -1,0 +1,5 @@
+# dsmcp design-system governance
+- Before writing UI: get_contract({ stack: "flutter" }).
+- NEVER hardcode Color(0x…) or Colors.<name>; use Theme.of(context).colorScheme.* (the themed token).
+- Copy get_component_spec blueprints; cover the required states in every mode (light, dark, high-contrast-dark).
+- Switch modes via ThemeController.setMode("<mode>") (Map<String, ThemeData> appThemes). Run "npx --yes dsmcp validate ." before finishing.

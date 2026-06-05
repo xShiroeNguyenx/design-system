@@ -1,0 +1,16 @@
+/* Deliberately drifted fixture — the validator MUST flag the violations below. */
+
+:root {
+  /* custom-property DEFINITION — allowed, must NOT be flagged */
+  --brand: #ffffff;
+}
+
+.box {
+  color: #3b82f6;            /* VIOLATION: raw hex in a usage */
+  background: rgb(10, 10, 10); /* VIOLATION: raw rgb() in a usage */
+  border-color: var(--color-border-default); /* OK: tokenized */
+}
+
+/* Mixing strategies: a 2-mode `.dark` class alongside [data-theme] — single-mode warning */
+.dark .box { color: red; }   /* 'red' is a named color (not hex/rgb/hsl) — not a raw-color finding */
+[data-theme="dark"] .box { color: var(--color-text-primary); }

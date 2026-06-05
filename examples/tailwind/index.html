@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>App (dsmcp Tailwind)</title>
+  <!-- tokens.css provides the mode-scoped CSS vars the preset maps to. -->
+  <link rel="stylesheet" href="./theme/tokens.css" />
+  <!-- Build your Tailwind CSS with tailwind.config.js (presets it), then link it here. -->
+  <link rel="stylesheet" href="./dist/tailwind.css" />
+  <script src="./theme/theme.js"></script>
+</head>
+<body class="bg-bg-default text-text-primary">
+  <div class="p-4 flex justify-end"><span id="dsmcp-theme-switcher"></span></div>
+  <main class="max-w-2xl mx-auto p-8">
+    <h1>Themed app</h1>
+    <p>Modes: light, dark, high-contrast-dark. Use semantic utilities; never raw palette utilities.</p>
+    <div class="bg-bg-raised text-text-primary border border-border-default rounded-surface shadow-card p-6">
+      <!-- Governed Tailwind button — copy the class strings. Variants cover every mode
+           via the data-theme preset (theme/tokens.css). Use semantic utilities only. -->
+      <button class="inline-flex items-center gap-2 px-4 py-2 rounded-control font-semibold
+        bg-action-primary-bg text-action-primary-fg
+        hover:bg-action-primary-hover active:bg-action-primary-active
+        focus-visible:outline focus-visible:outline-2 focus-visible:outline-action-primary-focus
+        disabled:bg-action-primary-disabled disabled:text-text-muted disabled:cursor-not-allowed">Primary</button>
+      
+      <button class="inline-flex items-center gap-2 px-4 py-2 rounded-control font-semibold
+        bg-action-secondary-bg text-action-secondary-fg
+        hover:bg-action-secondary-hover active:bg-action-secondary-active
+        focus-visible:outline focus-visible:outline-2 focus-visible:outline-action-secondary-focus
+        disabled:bg-action-secondary-disabled disabled:text-text-muted disabled:cursor-not-allowed">Secondary</button>
+      
+      <button class="inline-flex items-center gap-2 px-4 py-2 rounded-control font-semibold
+        bg-action-danger-bg text-action-danger-fg
+        hover:bg-action-danger-hover active:bg-action-danger-active
+        focus-visible:outline focus-visible:outline-2 focus-visible:outline-action-danger-focus
+        disabled:bg-action-danger-disabled disabled:text-text-muted disabled:cursor-not-allowed">Danger</button>
+    </div>
+  </main>
+</body>
+</html>

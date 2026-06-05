@@ -1,0 +1,26 @@
+/* Flagship fixture. Exactly ONE family must be flagged; the rest must NOT fire. */
+
+/* POSITIVE: button family has hover + focus-visible but is MISSING active + disabled
+   -> exactly 1 finding (states split across base + this rule still grouped as .btn). */
+.btn { color: var(--color-action-primary-fg); }
+.btn:hover { background: var(--button-primary-hover); }
+.btn:focus-visible { outline-color: var(--button-primary-focus); }
+
+/* NEGATIVE: input family is complete (hover/focus-visible/disabled; no :active needed). */
+.input { background: var(--input-bg); }
+.input:hover { border-color: var(--color-text-muted); }
+.input:focus-visible { outline-color: var(--input-focus); }
+.input:disabled { background: var(--color-bg-subtle); }
+
+/* NEGATIVE: link family complete (hover/active/focus-visible; disabled not required). */
+a.link { color: var(--color-text-primary); }
+a.link:hover { color: var(--color-action-primary-hover); }
+a.link:active { color: var(--color-action-primary-active); }
+a.link:focus-visible { outline-color: var(--color-action-primary-focus); }
+
+/* NEGATIVE: ignore-marked element with a reason — must be skipped despite missing states. */
+/* dsmcp-ignore interactive-completeness: legacy third-party widget, refactor later */
+button.legacy { color: var(--color-text-primary); }
+
+/* NEGATIVE: non-interactive container — not a recognized signal, must not fire. */
+.button-group { display: flex; gap: var(--space-2); }

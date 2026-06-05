@@ -1,0 +1,5 @@
+# dsmcp design-system governance
+- Before writing UI: get_contract({ stack: "vanilla" }).
+- Use only approved tokens; never hardcode colors or raw spacing/radius/shadow.
+- Copy get_component_spec blueprints; cover hover/active/focus-visible/disabled in every mode (light, dark, high-contrast-dark).
+- One mode strategy: data-theme. Run "npx --yes dsmcp validate ." before finishing.

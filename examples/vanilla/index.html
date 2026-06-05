@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>App (dsmcp themed)</title>
+  <link rel="stylesheet" href="./theme/tokens.css" />
+  <link rel="stylesheet" href="./theme/components.css" />
+  <style>
+    /* App chrome uses ONLY tokens — no hardcoded values. */
+    body { margin: 0; background: var(--color-bg-default); color: var(--color-text-primary);
+           font-family: var(--font-family-sans); font-size: var(--font-size-md); }
+    main { max-width: 720px; margin: 0 auto; padding: var(--space-8); }
+    .toolbar { display: flex; justify-content: flex-end; padding: var(--space-4); }
+  </style>
+  <script src="./theme/theme.js"></script>
+</head>
+<body>
+  <div class="toolbar"><span id="dsmcp-theme-switcher"></span></div>
+  <main>
+    <h1>Themed app</h1>
+    <p>Modes: light, dark, high-contrast-dark. Edit tokens, not components.</p>
+    <div class="card">
+      <p>Card surface.</p>
+      <button class="btn btn--primary" type="button">Primary</button>
+      <button class="btn btn--secondary" type="button">Secondary</button>
+      <button class="btn btn--danger" type="button">Danger</button>
+    </div>
+  </main>
+</body>
+</html>

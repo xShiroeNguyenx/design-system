@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <style>
+    /* VIOLATION: raw hsl() usage in a <style> block */
+    .y { border-color: hsl(200, 50%, 50%); }
+  </style>
+</head>
+<body>
+  <!-- VIOLATION: raw hex in an inline style; the var() usage beside it is OK -->
+  <div style="color: #ff0000; background: var(--color-bg-default)">drift</div>
+</body>
+</html>

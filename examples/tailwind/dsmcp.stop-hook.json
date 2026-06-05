@@ -1,0 +1,15 @@
+// dsmcp — Claude Code Stop-hook snippet.
+// Merge into .claude/settings.json under "hooks": runs the validator at the end
+// of each turn; while validate is a Phase-3 stub (exit 2) it passes through.
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          { "type": "command", "command": "npx --yes dsmcp validate ." }
+        ]
+      }
+    ]
+  }
+}

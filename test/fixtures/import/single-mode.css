@@ -1,0 +1,6 @@
+/* A hand-written theme with only :root (no dark) — import must REPORT the gap. */
+:root {
+  --color-bg-default: #ffffff;
+  --color-text-primary: #111827;
+  --color-text-secondary: #374151;
+}

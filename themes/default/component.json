@@ -1,0 +1,51 @@
+{
+  "button": {
+    "$type": "color",
+    "primary": {
+      "bg":       { "$value": "{color.action.primary.bg}" },
+      "fg":       { "$value": "{color.action.primary.fg}" },
+      "border":   { "$value": "{color.action.primary.border}" },
+      "hover":    { "$value": "{color.action.primary.hover}" },
+      "active":   { "$value": "{color.action.primary.active}" },
+      "disabled": { "$value": "{color.action.primary.disabled}" },
+      "focus":    { "$value": "{color.action.primary.focus}" }
+    },
+    "secondary": {
+      "bg":       { "$value": "{color.action.secondary.bg}" },
+      "fg":       { "$value": "{color.action.secondary.fg}" },
+      "border":   { "$value": "{color.action.secondary.border}" },
+      "hover":    { "$value": "{color.action.secondary.hover}" },
+      "active":   { "$value": "{color.action.secondary.active}" },
+      "disabled": { "$value": "{color.action.secondary.disabled}" },
+      "focus":    { "$value": "{color.action.secondary.focus}" }
+    },
+    "danger": {
+      "bg":       { "$value": "{color.action.danger.bg}" },
+      "fg":       { "$value": "{color.action.danger.fg}" },
+      "border":   { "$value": "{color.action.danger.border}" },
+      "hover":    { "$value": "{color.action.danger.hover}" },
+      "active":   { "$value": "{color.action.danger.active}" },
+      "disabled": { "$value": "{color.action.danger.disabled}" },
+      "focus":    { "$value": "{color.action.danger.focus}" }
+    },
+    "radius":  { "$type": "dimension", "$value": "{radius.control}" },
+    "padding": { "$type": "dimension", "$value": "{space.inset.md}" }
+  },
+  "input": {
+    "$type": "color",
+    "bg":          { "$value": "{color.bg.raised}" },
+    "fg":          { "$value": "{color.text.primary}" },
+    "border":      { "$value": "{color.border.default}" },
+    "placeholder": { "$value": "{color.text.muted}" },
+    "focus":       { "$value": "{color.action.primary.focus}" },
+    "radius":      { "$type": "dimension", "$value": "{radius.control}" }
+  },
+  "card": {
+    "$type": "color",
+    "bg":     { "$value": "{color.bg.raised}" },
+    "fg":     { "$value": "{color.text.primary}" },
+    "border": { "$value": "{color.border.default}" },
+    "radius": { "$type": "dimension", "$value": "{radius.surface}" },
+    "shadow": { "$type": "shadow", "$value": "{elevation.card}" }
+  }
+}

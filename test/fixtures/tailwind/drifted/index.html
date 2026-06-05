@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8" /><title>drifted tailwind</title></head>
+<body>
+  <!-- VIOLATION: raw palette utilities (2) -> no-raw-class x2 -->
+  <div class="bg-blue-500 text-red-600 p-4">raw palette</div>
+
+  <!-- VIOLATION: interactive button missing all state variants -> 1 finding -->
+  <button class="bg-action-primary-bg text-action-primary-fg px-4 py-2 rounded-control">Bad</button>
+
+  <!-- OK: governed button with full variants -> 0 -->
+  <button class="bg-action-primary-bg text-action-primary-fg px-4 py-2 rounded-control
+    hover:bg-action-primary-hover active:bg-action-primary-active
+    focus-visible:outline-action-primary-focus disabled:bg-action-primary-disabled">Good</button>
+</body>
+</html>

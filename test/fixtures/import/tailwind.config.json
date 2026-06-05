@@ -1,0 +1,11 @@
+{
+  "theme": {
+    "extend": {
+      "colors": {
+        "blue": { "500": "#3b82f6", "600": "#2563eb" },
+        "brand": "#ff0000",
+        "surface": { "DEFAULT": "#ffffff", "raised": "#f9fafb" }
+      }
+    }
+  }
+}

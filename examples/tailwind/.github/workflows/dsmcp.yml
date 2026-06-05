@@ -1,0 +1,19 @@
+name: dsmcp theme governance
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Validate design-system compliance
+        run: |
+          npx --yes dsmcp validate .
+          code=$?
+          if [ "$code" = "2" ]; then
+            echo "[dsmcp] validate is a Phase-3 stub — skipping enforcement for now."
+            exit 0
+          fi
+          exit $code
