@@ -65,7 +65,11 @@ Other lookups: `dsmcp contract --stack css-vars`, `dsmcp list-tokens --category 
 
 ## Use as an MCP server
 
-Register with Claude Code / Cursor / Claude Desktop via `.mcp.json`:
+The package ships a `dsmcp-mcp` stdio server. Register it with Claude Code /
+Cursor / Claude Desktop. **In `.mcp.json` the args are passed literally (no
+shell), so the scoped name needs no quoting — copy as-is:**
+
+**macOS / Linux:**
 
 ```json
 {
@@ -74,6 +78,20 @@ Register with Claude Code / Cursor / Claude Desktop via `.mcp.json`:
   }
 }
 ```
+
+**Windows** (wrap with `cmd /c` — clients can't always spawn `npx.cmd` directly):
+
+```json
+{
+  "mcpServers": {
+    "dsmcp": { "command": "cmd", "args": ["/c", "npx", "-y", "-p", "@shiroe_nguyen/dsmcp", "dsmcp-mcp"] }
+  }
+}
+```
+
+> **Testing in a terminal?** Quote the scoped name — PowerShell otherwise reads
+> `@…` as splatting and drops the package:
+> `npx -y -p "@shiroe_nguyen/dsmcp" dsmcp doctor`
 
 **11 tools**: `get_contract`, `list_tokens`, `resolve_token`,
 `get_component_spec`, `scaffold_theme`, `generate_demo`, `validate_code`,
