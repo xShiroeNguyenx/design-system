@@ -3,6 +3,9 @@
 [![npm version](https://img.shields.io/npm/v/@shiroe_nguyen/dsmcp.svg)](https://www.npmjs.com/package/@shiroe_nguyen/dsmcp)
 [![license](https://img.shields.io/npm/l/@shiroe_nguyen/dsmcp.svg)](LICENSE)
 [![node](https://img.shields.io/node/v/@shiroe_nguyen/dsmcp.svg)](package.json)
+[![live demo](https://img.shields.io/badge/live%20demo-online-brightgreen)](https://xshiroenguyenx.github.io/design-system/)
+
+🔗 **[Live demo](https://xshiroenguyenx.github.io/design-system/)** — every token & component across all 18 modes × 6 typefaces, with two live switchers.
 
 **Contract + enforcement that makes AI use fixed design tokens, components and
 rules instead of guessing styles** — so generated UIs come out consistent, in
@@ -109,15 +112,18 @@ console.log(report.score, report.findings);
 
 ## Demo
 
+**▶ Live: https://xshiroenguyenx.github.io/design-system/**
+
+The page renders every token and governed component across **all 18 modes × 6
+typefaces**, with two independent live switchers. It is auto-deployed to GitHub
+Pages on every push to `main` (see [`.github/workflows/demo.yml`](.github/workflows/demo.yml)).
+
+Generate it yourself anytime:
+
 ```bash
 dsmcp demo --out ./demo
 npx serve ./demo        # or any static server, then open the printed URL
 ```
-
-The page renders every token and governed component across **all 18 modes × all
-6 typefaces**, with two independent live switchers. It is generated on demand —
-it is **not** part of the published npm package and is not hosted anywhere by
-default. (Want it live on GitHub Pages? See [RELEASE.md](RELEASE.md).)
 
 ## Develop
 
