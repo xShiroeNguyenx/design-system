@@ -17,6 +17,7 @@
 - [ ] **Điền các placeholder `FILL_ME`** trong [package.json](package.json): `author`, `repository.url`, `bugs.url`, `homepage`.
 - [ ] (Tùy chọn) Sửa `Copyright (c) 2026 dsmcp authors` trong [LICENSE](LICENSE) thành tên/đơn vị thật.
 - [ ] (Tùy chọn) Tạo `CHANGELOG.md` ghi mục `## 0.1.0`.
+- [ ] **Để publish tự động qua CI** (xem §7): tạo secret `NPM_TOKEN` (npm Automation token) trong GitHub repo Settings → Secrets → Actions.
 
 ---
 
@@ -98,20 +99,56 @@ git push -u origin main --tags
 
 ---
 
-## 7. Phát hành các bản sau (semver)
+## 7. Phát hành tự động qua GitHub Actions (khuyến nghị cho bản sau)
 
+Workflow [`.github/workflows/publish.yml`](.github/workflows/publish.yml) tự
+`npm publish` mỗi khi bạn **push một tag `v*`**. Nó kiểm tra tag khớp version
+trong `package.json`, chạy `npm ci` + `npm test`, rồi publish (kèm provenance).
+
+**Thiết lập một lần — tạo secret `NPM_TOKEN`:**
+1. npmjs.com → avatar → **Access Tokens** → **Generate New Token** → loại
+   **Automation** (bỏ qua 2FA trong CI). Copy token.
+2. GitHub repo → **Settings → Secrets and variables → Actions → New repository
+   secret** → tên `NPM_TOKEN`, dán token.
+
+**Mỗi lần phát hành sau đó — chỉ 3 lệnh:**
 ```bash
-# Vì repo có thể chưa có git, dùng --no-git-tag-version để chỉ bump số:
-npm version patch --no-git-tag-version   # 0.1.0 -> 0.1.1 (sửa lỗi)
-npm version minor --no-git-tag-version   # 0.1.x -> 0.2.0 (thêm tính năng, tương thích)
-npm version major --no-git-tag-version   # -> 1.0.0 (breaking, hoặc khi API engine đã ổn định)
-npm test && npm publish --access public
+npm version patch    # 0.1.0 -> 0.1.1 ; bump package.json + tạo commit + tag v0.1.1
+                     # (minor = tính năng mới, major = breaking / lên 1.0.0)
+git push             # đẩy commit
+git push --tags      # đẩy tag -> kích hoạt workflow -> tự lên npm
 ```
+> `npm version` cần repo git sạch (commit hết trước). Nó tự bump lock, tạo commit
+> `0.1.1` và tag `v0.1.1`. Push tag là xong — vào tab **Actions** xem tiến trình.
 
 - Giai đoạn `0.x`: `minor` = tính năng mới, `patch` = sửa lỗi.
 - Lên `1.0.0` khi cam kết API engine không phá vỡ ngược.
+- Nếu provenance lỗi (token/registry không hỗ trợ): bỏ `--provenance` trong workflow.
 
 ---
+
+## 8. Đưa trang demo lên GitHub Pages (tách biệt với publish npm)
+
+Workflow [`.github/workflows/demo.yml`](.github/workflows/demo.yml) build trang
+demo và deploy lên GitHub Pages **mỗi lần push vào `main`** (độc lập với việc
+publish npm — publish chỉ đẩy package, không đụng demo).
+
+**Bật một lần:**
+1. GitHub repo → **Settings → Pages → Build and deployment → Source** → chọn
+   **GitHub Actions**.
+2. Commit + push workflow (cùng các file khác):
+   ```bash
+   git add .github/workflows/demo.yml
+   git commit -m "ci: deploy demo to GitHub Pages on push to main"
+   git push
+   ```
+3. Vào tab **Actions** xem job "Deploy demo to GitHub Pages" chạy.
+
+**URL demo** (project site): `https://xshiroenguyenx.github.io/design-system/`
+(host viết thường, path = tên repo). Mỗi lần push `main` → demo tự cập nhật.
+
+> Demo dùng Google Fonts (CDN ngoài) nên Pages render đầy đủ "vibe" font; offline
+> mới fallback về system stack.
 
 ## Checklist nhanh
 

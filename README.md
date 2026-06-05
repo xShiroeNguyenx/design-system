@@ -1,116 +1,71 @@
 # dsmcp — Theme Governance MCP
 
-A **governance** system (contract + enforcement) that makes AI use fixed
-**tokens / components / rules** instead of guessing styles — so new projects
-come out in the right mode, consistent, with no drift. See [PLAN.md](PLAN.md)
-for the full design.
+[![npm version](https://img.shields.io/npm/v/dsmcp.svg)](https://www.npmjs.com/package/dsmcp)
+[![license](https://img.shields.io/npm/l/dsmcp.svg)](LICENSE)
+[![node](https://img.shields.io/node/v/dsmcp.svg)](package.json)
 
-> **"AI can call a tool" ≠ "AI complies."** The engine is pure TypeScript and is
-> exposed through three façades: **MCP** (suggestion), **CLI** and **hooks/CI**
-> (deterministic enforcement). All logic lives in `src/engine/`; nothing there
-> imports the MCP SDK.
+**Contract + enforcement that makes AI use fixed design tokens, components and
+rules instead of guessing styles** — so generated UIs come out consistent, in
+the right mode, with no drift.
 
-## Status — Phases 0–5 ✅ (all 4 stacks; PLAN.md complete)
+> **"AI can call a tool" ≠ "AI complies."** The engine is pure TypeScript exposed
+> through three façades: **MCP** (suggestion — the AI calls `get_contract` while
+> generating), **CLI**, and **hooks / CI** (deterministic enforcement that runs
+> whether or not the AI cooperates). All logic lives in `src/engine/`; nothing
+> there imports the MCP SDK.
 
-- **Phase 0** — DTCG N-mode token model (`{ [mode]: value }` + `extends`),
-  resolver with missing-mode / circular-ref / dangling-ref detection, default
-  full-design-system theme, `get_contract` over MCP stdio + CLI.
-- **Phase 1** — `list_tokens`, `resolve_token`, `get_component_spec`
-  (governed button/input/card blueprints with full interactive-state matrix).
-- **Phase 2** — `scaffold_theme` (tokens.css + components.css + N-mode switcher:
-  toggle for 2 modes / dropdown for >2, `prefers-color-scheme` + localStorage),
-  adoption artifacts (CLAUDE.md/.cursorrules/config/pre-commit/CI/Stop-hook,
-  guarded), `generate_demo` showcase. Default theme ships **18 modes** — the
-  full PLAN catalog: 10 functional (§11.1: light, dark, dim, midnight,
-  high-contrast-light/dark, sepia, solarized-light/dark, nord) + 8 aesthetic
-  (§11.2: love, future, synthwave, sakura, forest, ocean, coffee, aurora), each
-  inheriting a light/dark base via `extends` and **passing WCAG AA contrast in
-  every mode**. A second, **independent TYPEFACE axis** (`[data-type]`, switched
-  separately from color) ships 6 font-packs — system / serif / mono / rounded /
-  humanist / slab — that repoint `--font-family-sans|mono` so the whole UI
-  follows; web stacks load the fonts from Google Fonts with system fallbacks.
-  Example in `examples/css-vars/`.
+Status: **v0.1.0 — feature-complete** (Phases 0–5, all 4 stacks). See
+[PLAN.md §0](PLAN.md) for the full scope and what's intentionally deferred.
 
-- **Phase 3a** — rule engine: `no-raw-color` (postcss, definition-vs-usage),
-  `single-mode-strategy`, `mode-completeness`, `contrast-aa` (WCAG AA in every
-  mode); `validate_code` / `validate_project` / `suggest_fix` + compliance score.
-  `validate` exits 0/1 (activates the generated hooks). The default theme's
-  dark/hc action colors were fixed so the demo passes the checker **100%**.
+## Features
 
-- **Phase 3b** — ⭐ flagship `interactive-completeness`: element-type-aware
-  state-selector coverage with selector-family grouping (`.btn` covers
-  `.btn--*`), CSS/`<style>` only, conservative signals (button/a/input/select/
-  textarea + governed `.btn`/`.input`), escape hatch
-  `/* dsmcp-ignore interactive-completeness: <reason> */`. On css-vars, covering
-  a state covers every mode (vars swap under `[data-theme]`), so this stays a
-  pure coverage check. Proven: 0 findings on dsmcp's own output.
-
-- **Phase 4a** — multi-stack: **vanilla** (thin alias over the css-vars emitter)
-  and **tailwind** (reuses `tokens.css`; a preset maps semantic tokens →
-  `var(--x)`, so utilities like `bg-bg-default` are mode-aware). Rules are now
-  **stack-aware** via `appliesTo` + a detector registry: Tailwind gets its own
-  `no-raw-class` (palette utilities in markup) + `interactive-completeness-tailwind`
-  (state variants `hover:`/`focus-visible:`/…), and css-vars rules never run
-  (and vacuously pass) a Tailwind project. Examples in `examples/{vanilla,tailwind}/`.
-
-- **Phase 4b** — `import_theme` (CSS `:root`/`[data-theme]` → DTCG, the inverse
-  of the emitter; or a parsed `tailwind.config` palette → DTCG) and
-  `register_theme` (validate a caller's DTCG theme). Both **report gaps**
-  (missing modes, contrast) instead of throwing. Figma importer deferred (§13).
-
-- **Phase 5** — Flutter adapter (a different engine: no CSS). Scaffolds an
-  N-mode `Map<String, ThemeData>` (+ a `ThemeController`) from tokens, and a
-  `no-raw-color-dart` rule flags `Color(0x…)` (outside a `// dsmcp:generated`
-  theme source) and `Colors.<name>` palette usage. Stack-aware adoption
-  artifacts. _Note: generated Dart is structurally emitted + validated but not
-  compile-verified (no Dart toolchain here)._
-
-**11 MCP tools live** (every tool in PLAN §6): `get_contract`, `list_tokens`,
-`resolve_token`, `get_component_spec`, `scaffold_theme`, `generate_demo`,
-`validate_code`, `validate_project`, `suggest_fix`, `import_theme`,
-`register_theme`.
-
-**PLAN.md is complete** across all 4 stacks, including the full 18-mode catalog
-(§11.1 functional + §11.2 aesthetic packs) and an independent typeface axis.
-Deferred by design: the Figma importer (§13 open question), a Flutter
-interactive-states rule (§5 only specified the color-literal rule for Flutter),
-and per-pack Flutter fonts. Possible follow-ups: HTTP transport.
+- **DTCG token model** — 3 layers (primitive → semantic → component), mode-aware
+  values with `extends` inheritance. The resolver flags missing-mode, circular,
+  and dangling references.
+- **18 color modes** out of the box — 10 functional (`light`, `dark`, `dim`,
+  `midnight`, high-contrast light/dark, `sepia`, solarized light/dark, `nord`) +
+  8 aesthetic (`love`, `future`, `synthwave`, `sakura`, `forest`, `ocean`,
+  `coffee`, `aurora`). **Every mode passes WCAG-AA contrast + completeness.**
+  Switch via `[data-theme]`.
+- **Independent typeface axis** — 6 font-packs (`system`, `serif`, `mono`,
+  `rounded`, `humanist`, `slab`) switched **separately** from color via
+  `[data-type]`. A pack repoints `--font-family-sans|mono`, so the whole UI
+  follows with no component change. Two axes compose freely (mode × typeface).
+- **Validator** — `no-raw-color`, `single-mode-strategy`, `mode-completeness`,
+  `contrast-aa`, and the ⭐ flagship `interactive-completeness` (every
+  interactive element must define hover/active/focus-visible/disabled in every
+  mode). Structured findings + a compliance score + `suggest_fix`.
+- **4 target stacks** — CSS variables, Tailwind, vanilla CSS, and Flutter. Rules
+  are stack-aware, so each stack only runs the rules that apply to it.
+- **Scaffolding & adoption** — `scaffold_theme` emits tokens + governed
+  components + mode/typeface switchers + adoption artifacts
+  (`CLAUDE.md` / `.cursorrules` / pre-commit / GitHub Action / Stop-hook).
+  `generate_demo` builds a living showcase of every token across every axis.
 
 ## Install
 
 ```bash
-npm install -g dsmcp        # CLI on your PATH as `dsmcp`
-# or, no install:
+npm install -g dsmcp     # puts `dsmcp` on your PATH
+# or run without installing:
 npx dsmcp doctor
 ```
 
-Use the engine as a library:
-
-```js
-import { loadDefaultTheme, scaffoldTheme, validateProject } from "dsmcp";
-```
-
-## Develop
+## Quickstart (CLI)
 
 ```bash
-npm install
-npm test    # build + MCP stdio smoke (all 11 tools) + scaffold/demo/typeface coherence
-
-# CLI
-node dist/cli.js doctor                       # self-check the default theme
-node dist/cli.js contract --stack css-vars [--json]
-node dist/cli.js list-tokens --category color
-node dist/cli.js resolve color.bg.default --mode dark
-node dist/cli.js component button
-node dist/cli.js scaffold --out ./examples/css-vars
-node dist/cli.js demo --out ./examples/css-vars/demo
-node dist/cli.js validate ./examples/css-vars          # exit 1 on errors
-node dist/cli.js report ./examples/css-vars --json     # always exit 0 (CI artifact)
+dsmcp doctor                              # self-check the bundled theme (all modes resolve + contrast)
+dsmcp scaffold --out ./app --stack css-vars   # tokens + components + switchers + adoption files
+dsmcp demo --out ./app/demo               # generate the living showcase
+dsmcp validate ./app                      # exit 1 if any error → fails commits / CI
+dsmcp report ./app --json                 # compliance report (always exit 0; CI artifact)
 ```
+
+Other lookups: `dsmcp contract --stack css-vars`, `dsmcp list-tokens --category color`,
+`dsmcp resolve color.bg.default --mode dark`, `dsmcp component button`.
 
 ## Use as an MCP server
 
-`.mcp.json` (installed package — uses the `dsmcp-mcp` bin):
+Register with Claude Code / Cursor / Claude Desktop via `.mcp.json`:
 
 ```json
 {
@@ -120,27 +75,54 @@ node dist/cli.js report ./examples/css-vars --json     # always exit 0 (CI artif
 }
 ```
 
-Local checkout instead:
+**11 tools**: `get_contract`, `list_tokens`, `resolve_token`,
+`get_component_spec`, `scaffold_theme`, `generate_demo`, `validate_code`,
+`validate_project`, `suggest_fix`, `import_theme`, `register_theme`.
 
-```json
-{
-  "mcpServers": {
-    "dsmcp": { "command": "node", "args": ["dist/mcp/server.js"] }
-  }
-}
+## Use as a library
+
+```js
+import { loadDefaultTheme, scaffoldTheme, validateProject } from "dsmcp";
+
+const theme = loadDefaultTheme();
+const report = validateProject("./app", { stack: "css-vars" });
+console.log(report.score, report.findings);
 ```
 
-## Layout
+## Demo
+
+```bash
+dsmcp demo --out ./demo
+npx serve ./demo        # or any static server, then open the printed URL
+```
+
+The page renders every token and governed component across **all 18 modes × all
+6 typefaces**, with two independent live switchers. It is generated on demand —
+it is **not** part of the published npm package and is not hosted anywhere by
+default. (Want it live on GitHub Pages? See [RELEASE.md](RELEASE.md).)
+
+## Develop
+
+```bash
+npm install
+npm test     # build + MCP stdio smoke (11 tools) + scaffold/typeface + validator + importer
+```
+
+The compiled CLI is `node dist/cli.js <cmd>` (same commands as `dsmcp <cmd>`).
 
 ```
-src/engine/    pure core (tokens, resolver, contract) — no MCP/CLI deps
+src/engine/    pure core (tokens, resolver, rules, contract) — no MCP/CLI deps
 src/mcp/       MCP stdio façade
 src/cli.ts     CLI façade
 themes/default DTCG default theme + typefaces.json
-test/          smoke + fixtures
+test/          smoke harnesses + good-vs-drifted fixtures
 ```
 
-## Publish
+## Docs
 
-See [RELEASE.md](RELEASE.md) for the full first-release checklist (metadata,
-pre-flight checks, `npm publish`, tagging).
+- **[PLAN.md](PLAN.md)** — full design, architecture, and delivery status (§0).
+- **[RELEASE.md](RELEASE.md)** — how to publish (manual + tag-driven CI).
+
+## License
+
+[MIT](LICENSE)

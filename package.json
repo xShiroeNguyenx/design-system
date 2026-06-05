@@ -44,15 +44,15 @@
     "wcag"
   ],
   "license": "MIT",
-  "author": "FILL_ME (e.g. Your Name <you@example.com>)",
+  "author": "xShiroeNguyenx (https://github.com/xShiroeNguyenx)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FILL_ME/dsmcp.git"
+    "url": "git+https://github.com/xShiroeNguyenx/design-system.git"
   },
   "bugs": {
-    "url": "https://github.com/FILL_ME/dsmcp/issues"
+    "url": "https://github.com/xShiroeNguyenx/design-system/issues"
   },
-  "homepage": "https://github.com/FILL_ME/dsmcp#readme",
+  "homepage": "https://github.com/xShiroeNguyenx/design-system#readme",
   "engines": {
     "node": ">=18.18"
   },
