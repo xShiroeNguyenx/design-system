@@ -8,13 +8,11 @@
 ## 0. Chuẩn bị một lần
 
 - [ ] Có **tài khoản npm** (bật 2FA). Tạo tại https://www.npmjs.com/signup
-- [ ] **Kiểm tra tên còn trống**:
-  ```bash
-  npm view dsmcp version
-  ```
-  - `npm error 404` → tên trống, dùng được.
-  - Nếu đã có người chiếm → đổi sang scoped trong `package.json`: `"name": "@your-scope/dsmcp"` (lúc publish thêm `--access public`).
-- [ ] **Điền các placeholder `FILL_ME`** trong [package.json](package.json): `author`, `repository.url`, `bugs.url`, `homepage`.
+- [ ] **Tên package = `@shiroe_nguyen/dsmcp`** (scoped). Lý do: tên unscoped `dsmcp`
+  bị npm chặn (reserved / quá giống package có sẵn → 404 khi publish). Tên scoped
+  dưới namespace của bạn luôn dùng được. Scoped public **bắt buộc** `--access public`
+  (đã có sẵn trong workflow + các lệnh dưới).
+- [x] `author` / `repository` / `bugs` / `homepage` trong [package.json](package.json) đã điền.
 - [ ] (Tùy chọn) Sửa `Copyright (c) 2026 dsmcp authors` trong [LICENSE](LICENSE) thành tên/đơn vị thật.
 - [ ] (Tùy chọn) Tạo `CHANGELOG.md` ghi mục `## 0.1.0`.
 - [ ] **Để publish tự động qua CI** (xem §7): tạo secret `NPM_TOKEN` (npm Automation token) trong GitHub repo Settings → Secrets → Actions.
@@ -63,23 +61,23 @@ npm publish --access public --dry-run   # DIỄN TẬP: in ra mọi thứ, KHÔN
 npm publish --access public             # ĐẨY THẬT (prepublishOnly tự chạy npm test trước)
 ```
 
-> Nếu dùng tên scoped `@your-scope/dsmcp`, `--access public` là bắt buộc (mặc định scoped = private).
+> Package là scoped (`@shiroe_nguyen/dsmcp`) → `--access public` **bắt buộc** (mặc định scoped = private). Đã có sẵn ở mọi lệnh + trong workflow.
 
 ---
 
 ## 5. Hậu kiểm (sau khi publish)
 
 ```bash
-npm view dsmcp                 # thấy "version: 0.1.0" trên registry
+npm view @shiroe_nguyen/dsmcp                      # thấy "version: 0.1.0" trên registry
 # Cài sạch ở một thư mục trống để thử như người dùng thật:
-npx -y dsmcp@0.1.0 doctor      # CLI chạy
-npx -y dsmcp-mcp               # MCP server khởi động qua stdio (Ctrl+C để thoát)
+npx -y @shiroe_nguyen/dsmcp doctor                 # CLI chạy
+npx -y -p @shiroe_nguyen/dsmcp dsmcp-mcp           # MCP server khởi động qua stdio (Ctrl+C để thoát)
 ```
 
 Đăng ký MCP cho Claude Code/Cursor (`.mcp.json`):
 
 ```json
-{ "mcpServers": { "dsmcp": { "command": "npx", "args": ["-y", "dsmcp-mcp"] } } }
+{ "mcpServers": { "dsmcp": { "command": "npx", "args": ["-y", "-p", "@shiroe_nguyen/dsmcp", "dsmcp-mcp"] } } }
 ```
 
 ---
@@ -152,11 +150,10 @@ publish npm — publish chỉ đẩy package, không đụng demo).
 
 ## Checklist nhanh
 
-- [ ] Điền `FILL_ME` trong `package.json`
+- [x] Tên scoped `@shiroe_nguyen/dsmcp` + metadata đã điền
 - [ ] (tùy) tên holder trong `LICENSE`
-- [ ] `npm view dsmcp version` — tên trống (hoặc đổi scoped)
 - [ ] `npm test` xanh + `node dist/cli.js doctor` OK
-- [ ] `npm pack --dry-run` đúng nội dung
+- [ ] `npm pack --dry-run` đúng nội dung (tên `@shiroe_nguyen/dsmcp`)
 - [ ] `npm login` + `npm whoami`
 - [ ] `npm publish --access public`
-- [ ] `npx -y dsmcp@0.1.0 doctor` chạy được
+- [ ] `npx -y @shiroe_nguyen/dsmcp doctor` chạy được

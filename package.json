@@ -1,5 +1,5 @@
 {
-  "name": "dsmcp",
+  "name": "@shiroe_nguyen/dsmcp",
   "version": "0.1.0",
   "description": "Theme Governance MCP — contract + enforcement for consistent, mode-aware design systems (DTCG tokens, N color modes, independent typeface axis, 4 stacks).",
   "type": "module",

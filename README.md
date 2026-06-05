@@ -1,8 +1,8 @@
 # dsmcp — Theme Governance MCP
 
-[![npm version](https://img.shields.io/npm/v/dsmcp.svg)](https://www.npmjs.com/package/dsmcp)
-[![license](https://img.shields.io/npm/l/dsmcp.svg)](LICENSE)
-[![node](https://img.shields.io/node/v/dsmcp.svg)](package.json)
+[![npm version](https://img.shields.io/npm/v/@shiroe_nguyen/dsmcp.svg)](https://www.npmjs.com/package/@shiroe_nguyen/dsmcp)
+[![license](https://img.shields.io/npm/l/@shiroe_nguyen/dsmcp.svg)](LICENSE)
+[![node](https://img.shields.io/node/v/@shiroe_nguyen/dsmcp.svg)](package.json)
 
 **Contract + enforcement that makes AI use fixed design tokens, components and
 rules instead of guessing styles** — so generated UIs come out consistent, in
@@ -45,9 +45,9 @@ Status: **v0.1.0 — feature-complete** (Phases 0–5, all 4 stacks). See
 ## Install
 
 ```bash
-npm install -g dsmcp     # puts `dsmcp` on your PATH
+npm install -g @shiroe_nguyen/dsmcp   # puts `dsmcp` + `dsmcp-mcp` on your PATH
 # or run without installing:
-npx dsmcp doctor
+npx @shiroe_nguyen/dsmcp doctor
 ```
 
 ## Quickstart (CLI)
@@ -70,7 +70,7 @@ Register with Claude Code / Cursor / Claude Desktop via `.mcp.json`:
 ```json
 {
   "mcpServers": {
-    "dsmcp": { "command": "npx", "args": ["-y", "dsmcp-mcp"] }
+    "dsmcp": { "command": "npx", "args": ["-y", "-p", "@shiroe_nguyen/dsmcp", "dsmcp-mcp"] }
   }
 }
 ```
@@ -82,7 +82,7 @@ Register with Claude Code / Cursor / Claude Desktop via `.mcp.json`:
 ## Use as a library
 
 ```js
-import { loadDefaultTheme, scaffoldTheme, validateProject } from "dsmcp";
+import { loadDefaultTheme, scaffoldTheme, validateProject } from "@shiroe_nguyen/dsmcp";
 
 const theme = loadDefaultTheme();
 const report = validateProject("./app", { stack: "css-vars" });
