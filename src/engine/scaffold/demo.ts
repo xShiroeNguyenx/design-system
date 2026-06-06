@@ -495,6 +495,18 @@ code { font-family: var(--font-family-mono); }
 }
 `;
 
+/**
+ * Favicon — dsmcp's mark: a light/dark "contrast disc" (the universal mode
+ * symbol — dsmcp's core is mode-aware theming) on a brand-accent rounded square.
+ * Static SVG (scales crisply, no binary); colors are literal by design.
+ */
+const FAVICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="dsmcp">
+  <rect width="32" height="32" rx="7" fill="#2563eb"/>
+  <circle cx="16" cy="16" r="8.5" fill="#ffffff"/>
+  <path d="M16 7.5a8.5 8.5 0 0 1 0 17z" fill="#0b1220"/>
+</svg>
+`;
+
 function demoHtml(theme: ThemeDefinition, modes: ModeName[]): string {
   const leaves = collectLeaves(theme.tokens as unknown as Record<string, unknown>);
   const typeCount = theme.typeThemes?.length ?? 0;
@@ -505,6 +517,7 @@ function demoHtml(theme: ThemeDefinition, modes: ModeName[]): string {
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>${esc(theme.name)} — design system</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
 ${googleFontsLinks(theme)}
   <link rel="stylesheet" href="./tokens.css" />
   <link rel="stylesheet" href="./components.css" />
@@ -560,6 +573,7 @@ export function generateDemo(theme: ThemeDefinition, opts: DemoOptions): DemoRes
     { path: "components.css", content: emitComponentCss("css-vars") },
     { path: "theme.js", content: emitSwitcherJs({ modes, defaultMode, typeThemes, defaultTypeTheme: theme.defaultTypeTheme }) },
     { path: "demo.css", content: DEMO_CSS },
+    { path: "favicon.svg", content: FAVICON_SVG },
     { path: "index.html", content: demoHtml(theme, modes) },
   ];
   return { modes, defaultMode, files };
